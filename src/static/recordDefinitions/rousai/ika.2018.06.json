@@ -1,0 +1,1472 @@
+[
+  {
+    "record_shikibetsu_info": "IR",
+    "name": "医療機関情報レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "予備１",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "都道府県",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "点数表",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "医療機関コード",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "予備２",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "医療機関名称",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "請求年月",
+        "type": "数字",
+        "max_bytes": 5,
+        "is_fixed": true
+      },
+      {
+        "name": "マルチボリューム識別情報",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "電話番号",
+        "type": "英数",
+        "max_bytes": 15,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "RE",
+    "name": "レセプト共通レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "レセプト番号",
+        "type": "数字",
+        "max_bytes": 6,
+        "is_fixed": false
+      },
+      {
+        "name": "予備１",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "予備２",
+        "type": "数字",
+        "max_bytes": 5,
+        "is_fixed": false
+      },
+      {
+        "name": "労働者の氏名",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "男女区分",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "生年月日",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "予備３",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "入院年月日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "病棟区分",
+        "type": "英数",
+        "max_bytes": 8,
+        "is_fixed": false
+      },
+      {
+        "name": "予備４",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "予備５",
+        "type": "英数",
+        "max_bytes": 10,
+        "is_fixed": false
+      },
+      {
+        "name": "病床数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "カルテ番号",
+        "type": "英数",
+        "max_bytes": 20,
+        "is_fixed": false
+      },
+      {
+        "name": "予備６",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "予備７",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "予備８",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "予備９",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "電算処理受付番号",
+        "type": "英数",
+        "max_bytes": 20,
+        "is_fixed": false
+      },
+      {
+        "name": "記録条件仕様年月情報",
+        "type": "数字",
+        "max_bytes": 5,
+        "is_fixed": false
+      },
+      {
+        "name": "請求情報",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科１－診療科名",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科１－人体の部位等",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科１－性別等",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科１－医学的処置",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科１－特定疾病",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科２－診療科名",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科２－人体の部位等",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科２－性別等",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科２－医学的処置",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科２－特定疾病",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科３－診療科名",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科３－人体の部位等",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科３－性別等",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科３－医学的処置",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "診療科３－特定疾病",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "予備１０",
+        "type": "漢字",
+        "max_bytes": 80,
+        "is_fixed": false
+      },
+      {
+        "name": "患者の状態",
+        "type": "数字",
+        "max_bytes": 60,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "RR",
+    "name": "労災レセプトレコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "回数（同一傷病について）",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "業務災害・通勤災害の区分",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "帳票種別",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "年金証書番号",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "労働保険番号",
+        "type": "数字",
+        "max_bytes": 14,
+        "is_fixed": false
+      },
+      {
+        "name": "傷病年月日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "新継再別",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "転帰事由",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "療養期間－初日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "療養期間－末日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "診療実日数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "労働者の氏名（カナ）",
+        "type": "漢字全角カナのみ",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "事業の名称",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "事業場の所在地",
+        "type": "漢字",
+        "max_bytes": 80,
+        "is_fixed": false
+      },
+      {
+        "name": "傷病の経過",
+        "type": "漢字",
+        "max_bytes": 100,
+        "is_fixed": false
+      },
+      {
+        "name": "小計点数",
+        "type": "数字",
+        "max_bytes": 8,
+        "is_fixed": false
+      },
+      {
+        "name": "小計点数金額換算（イ）",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "小計金額（ロ）",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "食事療養合計回数",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "食事療養合計金額（ハ）",
+        "type": "数字",
+        "max_bytes": 8,
+        "is_fixed": false
+      },
+      {
+        "name": "合計額（イ）＋（ロ）＋（ハ）",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "SY",
+    "name": "傷病名レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "傷病名コード",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "診療開始日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "予備１",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "修飾語コード",
+        "type": "英数",
+        "max_bytes": 80,
+        "is_fixed": false
+      },
+      {
+        "name": "傷病名称",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "主傷病",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "補足コメント",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "RI",
+    "name": "労災医科診療行為レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "診療識別",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "診療行為コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": true
+      },
+      {
+        "name": "数量データ",
+        "type": "数字",
+        "max_bytes": 8,
+        "is_fixed": false
+      },
+      {
+        "name": "点数",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "金額",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－①コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－①文字データ",
+        "type": "漢字",
+        "max_bytes": 100,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－②コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－②文字データ",
+        "type": "漢字",
+        "max_bytes": 100,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－③コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－③文字データ",
+        "type": "漢字",
+        "max_bytes": 100,
+        "is_fixed": false
+      },
+      {
+        "name": "1日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "2日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "3日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "4日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "5日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "6日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "7日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "8日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "9日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "10日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "11日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "12日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "13日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "14日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "15日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "16日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "17日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "18日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "19日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "20日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "21日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "22日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "23日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "24日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "25日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "26日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "27日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "28日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "29日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "30日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "31日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "IY",
+    "name": "医薬品レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "診療識別",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "予備１",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "医薬品コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": true
+      },
+      {
+        "name": "使用量",
+        "type": "数字",
+        "max_bytes": 11,
+        "is_fixed": false
+      },
+      {
+        "name": "点数",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－①コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－①文字データ",
+        "type": "漢字",
+        "max_bytes": 100,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－②コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－②文字データ",
+        "type": "漢字",
+        "max_bytes": 100,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－③コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－③文字データ",
+        "type": "漢字",
+        "max_bytes": 100,
+        "is_fixed": false
+      },
+      {
+        "name": "1日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "2日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "3日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "4日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "5日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "6日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "7日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "8日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "9日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "10日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "11日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "12日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "13日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "14日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "15日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "16日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "17日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "18日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "19日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "20日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "21日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "22日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "23日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "24日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "25日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "26日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "27日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "28日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "29日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "30日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "31日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "TO",
+    "name": "特定器材レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "診療識別",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "予備１",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "特定器材コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": true
+      },
+      {
+        "name": "使用量",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "点数",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "単位コード",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "単価",
+        "type": "数字",
+        "max_bytes": 11,
+        "is_fixed": false
+      },
+      {
+        "name": "予備",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "商品名及び規格又はサイズ",
+        "type": "漢字",
+        "max_bytes": 300,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－①コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－①文字データ",
+        "type": "漢字",
+        "max_bytes": 100,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－②コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－②文字データ",
+        "type": "漢字",
+        "max_bytes": 100,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－③コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "コメント－③文字データ",
+        "type": "漢字",
+        "max_bytes": 100,
+        "is_fixed": false
+      },
+      {
+        "name": "1日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "2日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "3日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "4日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "5日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "6日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "7日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "8日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "9日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "10日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "11日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "12日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "13日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "14日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "15日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "16日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "17日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "18日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "19日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "20日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "21日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "22日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "23日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "24日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "25日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "26日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "27日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "28日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "29日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "30日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "31日の情報",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "CO",
+    "name": "コメントレコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "診療識別",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "予備１",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": true
+      },
+      {
+        "name": "文字データ",
+        "type": "漢字",
+        "max_bytes": 76,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "SJ",
+    "name": "症状詳記レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "症状詳記区分",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "症状詳記データ",
+        "type": "漢字",
+        "max_bytes": 2400,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "RS",
+    "name": "労災診療費請求書レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "病院・診療所の区分",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "請求書提出年月日",
+        "type": "英数",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "都道府県労働局コード",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "労働基準監督署コード",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "指定病院等の番号",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "郵便番号",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "医療機関所在地",
+        "type": "漢字",
+        "max_bytes": 80,
+        "is_fixed": false
+      },
+      {
+        "name": "医療機関責任者氏名",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "労災診療費単価",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": true
+      },
+      {
+        "name": "請求金額",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "内訳書添付枚数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "マルチボリューム識別情報",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": true
+      }
+    ]
+  }
+]

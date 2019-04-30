@@ -1,0 +1,1844 @@
+[
+  {
+    "record_shikibetsu_info": "YK",
+    "name": "薬局情報レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "予備１",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "都道府県",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "点数表",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "薬局コード",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "薬局連絡先名称",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "請求年月",
+        "type": "数字",
+        "max_bytes": 5,
+        "is_fixed": true
+      },
+      {
+        "name": "マルチボリューム識別情報",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "電話番号",
+        "type": "英数",
+        "max_bytes": 15,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "RE",
+    "name": "レセプト共通レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "レセプト番号",
+        "type": "数字",
+        "max_bytes": 6,
+        "is_fixed": false
+      },
+      {
+        "name": "予備１",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "予備２",
+        "type": "数字",
+        "max_bytes": 5,
+        "is_fixed": false
+      },
+      {
+        "name": "労働者の氏名",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "男女区分",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "生年月日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "予備３",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "予備４",
+        "type": "英数",
+        "max_bytes": 10,
+        "is_fixed": false
+      },
+      {
+        "name": "医療機関名称・所在地－コード－都道府県",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "医療機関名称・所在地－コード－点数表",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "医療機関名称・所在地－コード－医療機関",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "名称",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "所在地",
+        "type": "漢字",
+        "max_bytes": 80,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－①",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－②",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－③",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－④",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑤",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑥",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑦",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑧",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑨",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑩",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑪",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑫",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑬",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑭",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑮",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑯",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑰",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑱",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑲",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "保険医師氏名－氏名－⑳",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "麻薬免許番号",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤録番号等",
+        "type": "英数",
+        "max_bytes": 20,
+        "is_fixed": false
+      },
+      {
+        "name": "予備５",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "電算処理受付番号",
+        "type": "英数",
+        "max_bytes": 20,
+        "is_fixed": false
+      },
+      {
+        "name": "記録条件仕様年月情報",
+        "type": "数字",
+        "max_bytes": 5,
+        "is_fixed": false
+      },
+      {
+        "name": "請求情報",
+        "type": "英数漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "予備６",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "予備７",
+        "type": "漢字",
+        "max_bytes": 80,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "RR",
+    "name": "労災レセプトレコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "回数（同一傷病について）",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "初回・継続の区分",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "業務災害・通勤災害の区分",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "帳票種別",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "年金証書番号",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "労働保険番号",
+        "type": "数字",
+        "max_bytes": 14,
+        "is_fixed": false
+      },
+      {
+        "name": "傷病年月日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "投薬期間－初日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "投薬期間－末日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "労働者の氏名（カナ）",
+        "type": "漢字全角カナのみ",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "事業の名称",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "事業場の所在地",
+        "type": "漢字",
+        "max_bytes": 80,
+        "is_fixed": false
+      },
+      {
+        "name": "請求点数",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "合計額",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "処方せん受付回数",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "SH",
+    "name": "処方基本レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "No",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "剤形コード",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "用法－用法コード",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "用法－特別指示",
+        "type": "漢字",
+        "max_bytes": 80,
+        "is_fixed": false
+      },
+      {
+        "name": "単位薬剤料　合計",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備１",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備２",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備３",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備４",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "CZ",
+    "name": "調剤情報レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "医師番号",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "処方月日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "調剤月日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "処方せん受付回",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤数量",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤料－予備１",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤料－算定区分",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": true
+      },
+      {
+        "name": "調剤料－算定先No",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "調剤料－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤料－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "分割調剤－分割区分",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "分割調剤－前回までの数量",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬剤料－点数",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "薬剤料－予備２",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数①－予備３",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数①－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数①－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数②－予備３",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数②－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数②－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数③－予備３",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数③－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数③－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数④－予備３",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数④－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数④－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑤－予備３",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑤－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑤－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑥－予備３",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑥－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑥－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑦－予備３",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑦－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑦－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑧－予備３",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑧－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑧－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑨－予備３",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑨－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑨－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑩－予備３",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑩－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "加算料－コード・点数⑩－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "一包化日数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "分割調剤－分割調剤種類",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "分割調剤－前回までの一包化日数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "医師の指示による分割調剤－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "医師の指示による分割調剤－分割区分",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "医師の指示による分割調剤－分割対象調剤数量",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "医師の指示による分割調剤－分割対象一包化日数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "包括管理料等",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "他医療機関受診に係る処方せん受付",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "IY",
+    "name": "医薬品レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "予備",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "医薬品コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": true
+      },
+      {
+        "name": "使用量",
+        "type": "数字",
+        "max_bytes": 11,
+        "is_fixed": false
+      },
+      {
+        "name": "予備１",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備２",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "混合区分－コード",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "混合区分－枝",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "配合不適区分",
+        "type": "数字",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "１回用量",
+        "type": "数字",
+        "max_bytes": 11,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "TO",
+    "name": "特定器材レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "予備１",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "特定器材コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": true
+      },
+      {
+        "name": "使用量",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "単位コード",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "単価",
+        "type": "数字",
+        "max_bytes": 11,
+        "is_fixed": false
+      },
+      {
+        "name": "予備",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "CO",
+    "name": "コメントレコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": true
+      },
+      {
+        "name": "文字データ",
+        "type": "漢字",
+        "max_bytes": 76,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "TK",
+    "name": "摘要欄レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "コメントコード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": true
+      },
+      {
+        "name": "文字データ",
+        "type": "漢字",
+        "max_bytes": 76,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "KI",
+    "name": "基本料・薬学管理料レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "予備１",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "処方せん受付回",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料－予備２",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料－予備３",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数①－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数①－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数①－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数①－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数②－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数②－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数②－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数②－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数③－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数③－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数③－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数③－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数④－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数④－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数④－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数④－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑤－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑤－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑤－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑤－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑥－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑥－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑥－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑥－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑦－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑦－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑦－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑦－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑧－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑧－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑧－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑧－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑨－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑨－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑨－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑨－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑩－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑩－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑩－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑩－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑪－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑪－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑪－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑪－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑫－予備４",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑫－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑫－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "薬学管理料－コード・回数・点数⑫－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数①－予備５",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数①－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数①－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数①－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数②－予備５",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数②－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数②－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数②－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数③－予備５",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数③－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数③－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "摘要薬学管理料－コード・回数・点数③－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "前回調剤年月日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "前回調剤数量",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数①－予備６",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数①－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数①－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数①－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数②－予備６",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数②－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数②－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数②－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数③－予備６",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数③－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数③－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数③－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数④－予備６",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数④－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数④－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数④－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑤－予備６",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑤－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑤－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑤－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑥－予備６",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑥－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑥－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑥－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑦－予備６",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑦－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑦－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑦－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑧－予備６",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑧－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑧－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑧－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑨－予備６",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑨－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑨－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑨－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑩－予備６",
+        "type": "英数",
+        "max_bytes": 1,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑩－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑩－回数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "調剤基本料加算－コード・回数・点数⑩－点数",
+        "type": "数字",
+        "max_bytes": 4,
+        "is_fixed": false
+      },
+      {
+        "name": "包括管理料等",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "他医療機関受診に係る処方せん受付",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "医師の指示による分割調剤－調剤基本料－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "医師の指示による分割調剤－薬学管理料－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "医師の指示による分割調剤－摘要薬学管理料－コード",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "ST",
+    "name": "分割技術料レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "医師番号",
+        "type": "英数",
+        "max_bytes": 59,
+        "is_fixed": false
+      },
+      {
+        "name": "処方月日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "調剤月日",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "処方せん受付回",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "分割指示回数",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "分割対象点数",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "分割後点数",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備１",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備２",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備３",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備４",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備５",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備６",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備７",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "予備８",
+        "type": "数字",
+        "max_bytes": 7,
+        "is_fixed": false
+      }
+    ]
+  },
+  {
+    "record_shikibetsu_info": "RS",
+    "name": "労災薬剤費請求書レコード",
+    "columns": [
+      {
+        "name": "レコード識別情報",
+        "type": "英数",
+        "max_bytes": 2,
+        "is_fixed": true
+      },
+      {
+        "name": "請求書提出年月日",
+        "type": "英数",
+        "max_bytes": 7,
+        "is_fixed": true
+      },
+      {
+        "name": "都道府県労働局コード",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "労働基準監督署コード",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": false
+      },
+      {
+        "name": "指定薬局の番号",
+        "type": "数字",
+        "max_bytes": 8,
+        "is_fixed": true
+      },
+      {
+        "name": "郵便番号",
+        "type": "英数",
+        "max_bytes": 7,
+        "is_fixed": false
+      },
+      {
+        "name": "指定薬局所在地",
+        "type": "漢字",
+        "max_bytes": 80,
+        "is_fixed": false
+      },
+      {
+        "name": "指定薬局開設者氏名",
+        "type": "漢字",
+        "max_bytes": 40,
+        "is_fixed": false
+      },
+      {
+        "name": "請求金額",
+        "type": "数字",
+        "max_bytes": 9,
+        "is_fixed": false
+      },
+      {
+        "name": "内訳書添付枚数",
+        "type": "数字",
+        "max_bytes": 3,
+        "is_fixed": false
+      },
+      {
+        "name": "マルチボリューム識別情報",
+        "type": "数字",
+        "max_bytes": 2,
+        "is_fixed": true
+      }
+    ]
+  }
+]
