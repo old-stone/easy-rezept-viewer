@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({});
 
-class hoge extends Component {
+class Hoge extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -23,4 +23,4 @@ class hoge extends Component {
   }
 }
 
-export default withStyles(styles)(Results);
+export default withStyles(styles)(Hoge);

@@ -1,11 +1,14 @@
+import About from "../../presentational/moleceules/About";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
-import GitHub from "../../lib/github";
+import GitHub from "../../lib/GitHub";
+import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
-import Info from "@material-ui/icons/Info";
+import Link from "@material-ui/core/Link";
 import React from "react";
+import Receipt from "@material-ui/icons/Receipt";
 import RefreshButton from "../../presentational/moleceules/RefreshButton";
-import Save from "@material-ui/icons/Save";
+import SaveDialog from "../../presentational/moleceules/SaveDialog";
 import Toolbar from "@material-ui/core/Toolbar";
 import Tooltip from "@material-ui/core/Tooltip";
 import Typography from "@material-ui/core/Typography";
@@ -19,8 +22,16 @@ const styles = theme => ({
   grow: {
     flexGrow: 1
   },
+  icon: {
+    transform: "scale(1.7)",
+    // marginLeft: -5,
+    marginRight: 20
+  },
   fab: {
     margin: theme.spacing.unit * 2
+  },
+  link: {
+    textDecoration: "none"
   }
 });
 
@@ -31,8 +42,13 @@ function Header(props) {
     <div className={classes.root}>
       <AppBar position="sticky" color="primary">
         <Toolbar>
+          <Icon color="inherit" className={classes.icon}>
+            <Link color="inherit" href="/">
+              <Receipt />
+            </Link>
+          </Icon>
           <div className={classes.grow}>
-            <Typography variant="title" color="inherit">
+            <Typography variant="h6" color="inherit">
               Easy Rezept Viewer
             </Typography>
             <Typography
@@ -43,6 +59,7 @@ function Header(props) {
               for rousai format
             </Typography>
           </div>
+
           <Button
             color="inherit"
             onClick={() =>
@@ -56,31 +73,14 @@ function Header(props) {
             サンプルデータ投入
           </Button>
 
-          <Tooltip title="請求ファイルダウンロード">
-            <IconButton
-              color="inherit"
-              className={classes.button}
-              aria-label="save"
-              disabled={!props.rawdata}
-            >
-              <Save />
-            </IconButton>
-          </Tooltip>
+          <SaveDialog rawdata={props.rawdata} seikyusho={props.seikyusho} />
 
           <RefreshButton
             handleChange={props.handleChange}
             rawdata={props.rawdata}
           />
 
-          <Tooltip title="このページについて">
-            <IconButton
-              color="inherit"
-              className={classes.button}
-              aria-label="info"
-            >
-              <Info />
-            </IconButton>
-          </Tooltip>
+          <About />
 
           <Tooltip title="GitHubリポジトリ">
             <IconButton

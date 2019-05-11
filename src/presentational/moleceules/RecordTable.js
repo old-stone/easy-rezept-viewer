@@ -1,11 +1,11 @@
 import React from "react";
+import RecordColumns from "./RecordColumns";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
@@ -61,35 +61,7 @@ function RecordTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {columns.map((column, index) => (
-            <TableRow hover key={index}>
-              <TableCell align="right">{index + 1}</TableCell>
-              <TableCell align="left">{column.name}</TableCell>
-              <TableCell align="left">{column.type}</TableCell>
-              <TableCell align="right">{column.max_bytes}</TableCell>
-              <TableCell align="left">
-                {column.is_fixed ? "固定長" : "可変長"}
-              </TableCell>
-              <TableCell align="left">
-                {props.record[index] === undefined ? ( // 空文字は許容する
-                  <Typography color="error">項目不足</Typography>
-                ) : index === 0 ? (
-                  // レコード識別だけは変更させない
-                  props.record[index]
-                ) : (
-                  <TextField
-                    id="standard-bare"
-                    key={props.selectedIndex * 100 + index}
-                    className={classes.textField}
-                    defaultValue={props.record[index]}
-                    margin="dense"
-                    onBlur={props.handleChangeValue}
-                    fullWidth
-                  />
-                )}
-              </TableCell>
-            </TableRow>
-          ))}
+          <RecordColumns record={props.record} columns={columns} />
           {/* 項目数超過していた場合の処理 */}
           {props.record.length > columns.length &&
             props.record.slice(columns.length).map((value, index) => (
@@ -102,12 +74,10 @@ function RecordTable(props) {
                   <TextField
                     id="standard-error"
                     margin="dense"
-                    key={
-                      props.selectedIndex * 100 + props.record.length + index
-                    }
                     className={classes.textField}
-                    defaultValue={value}
+                    value={value}
                     helperText="項目数超過"
+                    disabled
                     error
                   />
                 </TableCell>

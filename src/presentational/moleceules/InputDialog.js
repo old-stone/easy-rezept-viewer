@@ -30,7 +30,7 @@ function InputDialog(props) {
           placeholder="請求ファイル内のテキストを貼り付けてください。"
           multiline
           fullWidth
-          rows="10"
+          rows="8"
           rowsMax="20"
           className={classes.textField}
           margin="normal"
@@ -40,7 +40,7 @@ function InputDialog(props) {
           InputLabelProps={{
             shrink: true
           }}
-        />{" "}
+        />
         {props.errors.map(error => {
           return (
             <Typography variant="caption" color="error">

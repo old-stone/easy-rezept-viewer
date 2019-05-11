@@ -16,6 +16,8 @@ class App extends Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChangeColumn = this.handleChangeColumn.bind(this);
     this.state = {
       rawdata: "",
       errors: [],
@@ -38,7 +40,7 @@ class App extends Component {
     const rawdataArray = csv2array(rawdata);
 
     // エラーが存在した場合
-    const errors = check(rawdataArray);
+    const errors = shallowCheck(rawdataArray);
     if (errors.length) {
       this.setState({
         rawdata: rawdata,
@@ -58,14 +60,32 @@ class App extends Component {
     });
   };
 
+  handleClick = () => {
+    const header = this.state.seikyusho.header.array.join(",");
+    const rezepts = this.state.seikyusho.rezepts
+      .map(rezept => rezept.map(record => record.array.join(",")).join("\n"))
+      .join("\n");
+    const footer = this.state.seikyusho.footer.array.join(",");
+    this.setState({
+      rawdata: header + "\n" + rezepts + "\n" + footer
+    });
+  };
+
+  handleChangeColumn(e, recordIndex, columnIndex) {}
+
   render() {
     return (
       <div className="App">
-        <Header handleChange={this.handleChange} rawdata={this.state.rawdata} />
+        <Header
+          handleChange={this.handleChange}
+          rawdata={this.state.rawdata}
+          seikyusho={this.state.seikyusho}
+        />
         <Form
           rawdata={this.state.rawdata}
           errors={this.state.errors}
           handleChange={this.handleChange}
+          handleClick={this.handleClick}
         />
         <Results
           rawdata={this.state.rawdata}
@@ -73,7 +93,6 @@ class App extends Component {
           seikyusho={this.state.seikyusho}
           master={this.state.master}
         />
-        {/* <Footer /> */}
       </div>
     );
   }
@@ -93,19 +112,14 @@ const getMaster = recordShikibetsuInfo => {
 };
 
 // 破綻しかねない最低限のチェックを行う
-const check = rawdataArray => {
+const shallowCheck = rawdataArray => {
   // 空の場合
   if (!rawdataArray.length) {
-    return null;
+    return [];
   }
 
   const errors = [];
-  const headerRecordShikibetsu = rawdataArray[0][0];
-  if (
-    headerRecordShikibetsu !== "IR" &&
-    headerRecordShikibetsu !== "UK" &&
-    headerRecordShikibetsu !== "YK"
-  ) {
+  if (!getTensuHyouCode(rawdataArray[0][0])) {
     errors.push("ヘッダレコードのレコード識別情報が不正です。");
   }
   const footerRecordShikibetsu = rawdataArray[rawdataArray.length - 1][0];
@@ -131,7 +145,9 @@ const createSeikyusho = rawdataArray => {
     footer: {
       index: rawdataArray.length - 1,
       array: rawdataArray[rawdataArray.length - 1]
-    }
+    },
+    tensuHyouCode: getTensuHyouCode(rawdataArray[0][0]),
+    isHenrei: Boolean(rawdataArray[1][18])
   };
 };
 
@@ -153,6 +169,19 @@ const createRezepts = rawdataArray => {
   return rezepts;
 };
 
+// ヘッダのレコード識別情報から点数表コードを取得
+const getTensuHyouCode = headerRecordShikibetsuInfo => {
+  if (headerRecordShikibetsuInfo === "IR") {
+    return 1;
+  } else if (headerRecordShikibetsuInfo === "UK") {
+    return 3;
+  } else if (headerRecordShikibetsuInfo === "YK") {
+    return 4;
+  } else {
+    return null;
+  }
+};
+
 // 入力値を行と列の二次元配列に分割する
 const csv2array = original => {
   const csvRows = original.trim().split("\n");
@@ -167,7 +196,9 @@ const initSeikyusho = () => {
   return {
     header: null,
     rezepts: [],
-    footer: null
+    footer: null,
+    tensuHyouCode: null,
+    isHenrei: false
   };
 };
 

@@ -38,15 +38,17 @@ class RefreshButton extends Component {
     return (
       <div>
         <Tooltip title="やり直し">
-          <IconButton
-            color="inherit"
-            className={classes.button}
-            aria-label="refresh"
-            onClick={this.handleClickOpen}
-            disabled={!this.props.rawdata}
-          >
-            <Refresh />
-          </IconButton>
+          <div>
+            <IconButton
+              color="inherit"
+              className={classes.button}
+              aria-label="refresh"
+              onClick={this.handleClickOpen}
+              disabled={!this.props.rawdata}
+            >
+              <Refresh />
+            </IconButton>
+          </div>
         </Tooltip>
 
         <Dialog
@@ -55,9 +57,7 @@ class RefreshButton extends Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">
-            最初からやり直します。
-          </DialogTitle>
+          <DialogTitle id="alert-dialog-title">最初からやり直す</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
               データは保存されていません。

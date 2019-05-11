@@ -29,8 +29,12 @@ class Results extends Component {
 
   // レセプトを選んだときの折りたたみ
   handleClickRezept = (e, index) => {
-    this.state.isOpen[index] = !this.state.isOpen[index];
-    this.setState({ isOpen: this.state.isOpen });
+    this.setState(function(prevState, props) {
+      prevState.isOpen[index] = !prevState.isOpen[index];
+      return {
+        isOpen: prevState.isOpen
+      };
+    });
   };
 
   // TODO:isOpenの名前が微妙 オブジェクト作ってプロパティ化すべき

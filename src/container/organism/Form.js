@@ -72,7 +72,10 @@ class Form extends Component {
             color="secondary"
             aria-label="Edit"
             className={classes.fab}
-            onClick={this.handleClickOpen}
+            onClick={() => {
+              this.handleClickOpen();
+              this.props.handleClick();
+            }}
           >
             <EditIcon />
           </Fab>
