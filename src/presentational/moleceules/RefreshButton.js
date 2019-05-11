@@ -60,7 +60,7 @@ class RefreshButton extends Component {
           <DialogTitle id="alert-dialog-title">最初からやり直す</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              データは保存されていません。
+              保存されていないデータは消えます。
             </DialogContentText>
           </DialogContent>
           <DialogActions>
