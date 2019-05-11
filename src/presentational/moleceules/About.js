@@ -81,11 +81,11 @@ class About extends Component {
                 <ListItemIcon>
                   <Avatar>Q</Avatar>
                 </ListItemIcon>
-                <ListItem>
+                <ListItemText>
                   <Link href="https://qiita.com/old-stone">
                     https://qiita.com/old-stone
                   </Link>
-                </ListItem>
+                </ListItemText>
               </ListItem>
 
               <ListItem>
