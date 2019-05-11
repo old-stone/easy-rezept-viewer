@@ -1,22 +1,69 @@
 # Easy Rezept Viewer
 
-電子レセプトを簡単に確認できるナニカ
+## Overview
 
-## スクリプト
+レセ電中の人向け、レセプト（請求書）ビューワー
+現段階では労災のみ対応
 
-`yarn start`
-`yarn test`
-`yarn run build`
-`yarn run eject`
+## Getting Started
 
-## できること
+### Prerequisites
 
-### TODO
+- git 2.20.1
+- node 11.14.0
+- npm 6.9.0
+- yarn 1.15.2
 
-- 修正機能
+※開発時のバージョン
+
+### Installing
+
+```sh
+git clone https://github.com/old-stone/easy-rezept-viewer.git
+cd easy-rezept-viewer
+yarn install
+yarn start
+```
+
+http://localhost:3000/ にアクセス
+
+## Running the tests
+
+```sh
+yarn test
+```
+
+## Deployment
+
+```sh
+yarn build
+```
+
+T.B.D.
+
+## Built With
+
+T.B.D.
+
+## Contributing
+
+T.B.D.
+
+## Authors
+
+- old-stone
+
+## License
+
+MIT
+
+## Acknowledgments
+
+T.B.D.
+
+## TODO
+
 - ドラッグ&ドロップ
-- アバウトページ
-- ダウンロード機能
-
+- 簡易チェック機能
 - 簡易チェックの R(L)1〜4 エラーとの紐づけ
 - 支払基金・アフターケアのフォーマット対応とか
