@@ -64,6 +64,7 @@ function Tree(props) {
           recordShikibetsuInfo={props.seikyusho.header.array[0]}
           master={props.master}
           nested={false}
+          errors={props.errors}
           handleClickRecord={props.handleClickRecord}
         />
 
@@ -98,6 +99,7 @@ function Tree(props) {
                       recordShikibetsuInfo={record.array[0]}
                       master={props.master}
                       nested={true}
+                      errors={props.errors}
                       handleClickRecord={props.handleClickRecord}
                     />
                   );
@@ -111,9 +113,10 @@ function Tree(props) {
         <TreeLabel
           index={props.seikyusho.footer.index}
           selectedIndex={props.selectedIndex}
-          handleClickRecord={props.handleClickRecord}
           recordShikibetsuInfo={props.seikyusho.footer.array[0]}
           master={props.master}
+          errors={props.errors}
+          handleClickRecord={props.handleClickRecord}
         />
       </List>
     </Paper>

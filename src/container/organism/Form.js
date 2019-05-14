@@ -4,21 +4,20 @@ import Button from "@material-ui/core/Button";
 import EditIcon from "@material-ui/icons/Edit";
 import Fab from "@material-ui/core/Fab";
 import InputDialog from "../../presentational/moleceules/InputDialog";
+import SeikyushoDropZone from "../../presentational/moleceules/SeikyushoDropZone";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   root: {
+    margin: "5vh",
+    padding: "5vh",
+    minHeight: "70vh",
     textAlign: "center",
-    minHeight: "93vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
-    // fontSize: "calc(10px + 2vmin)"
-    // display: "flex",
-    // flexGrow: 1,
-    // margin: theme.spacing.unit * 2
   },
   fab: {
     position: "fixed",
@@ -58,7 +57,7 @@ class Form extends Component {
             </Typography>
             <Button
               variant="outlined"
-              color="error"
+              color="secondary"
               onClick={this.handleClickOpen}
             >
               修正する
@@ -80,22 +79,10 @@ class Form extends Component {
             <EditIcon />
           </Fab>
         ) : (
-          <div className={classes.root}>
-            <Typography variant="h4" gutterBottom>
-              請求ファイルをドロップ
-              <Typography variant="caption">はまだ実装してない...</Typography>
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-              または
-            </Typography>
-            <Button
-              variant="outlined"
-              color="primary"
-              onClick={this.handleClickOpen}
-            >
-              レセプトを入力する
-            </Button>
-          </div>
+          <SeikyushoDropZone
+            handleChange={this.props.handleChange}
+            handleClickOpen={this.handleClickOpen}
+          />
         )}
         <InputDialog
           rawdata={this.props.rawdata}

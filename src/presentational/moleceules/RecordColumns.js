@@ -19,9 +19,17 @@ class RecordColumns extends Component {
 
   handleChange = (e, index) => {
     e.persist();
+    this.props.handleChange(
+      this.props.selectedIndex,
+      index,
+      e.target.value,
+      this.props.columns[index]
+    );
     this.setState(function(prevState, props) {
       prevState.record[index] = e.target.value;
-      return { record: prevState.record };
+      return {
+        record: prevState.record
+      };
     });
   };
 
@@ -55,6 +63,10 @@ class RecordColumns extends Component {
               margin="dense"
               onChange={e => this.handleChange(e, index)}
               fullWidth
+              error={
+                this.props.errors ? Boolean(this.props.errors[index]) : false
+              }
+              helperText={this.props.errors ? this.props.errors[index] : ""}
             />
           )}
         </TableCell>

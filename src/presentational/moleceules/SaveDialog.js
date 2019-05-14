@@ -12,6 +12,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import InputLabel from "@material-ui/core/InputLabel";
 import Save from "@material-ui/icons/Save";
 import Tooltip from "@material-ui/core/Tooltip";
+import encoding from "encoding-japanese";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({});
@@ -41,7 +42,17 @@ class SaveDialog extends Component {
 
   handleDownload = () => {
     const element = document.createElement("a");
-    const file = new Blob([this.props.rawdata], { type: "text/plain" });
+    const shiftJisCodeList = encoding.convert(
+      this.props.rawdata
+        .split("")
+        .map((c, index) => this.props.rawdata.codePointAt(index)),
+      "sjis",
+      "unicode"
+    );
+    const uInt8List = new Uint8Array(shiftJisCodeList);
+    const file = new Blob([uInt8List], {
+      type: "text/plain"
+    });
     element.href = URL.createObjectURL(file);
     element.download =
       this.state.fileName +

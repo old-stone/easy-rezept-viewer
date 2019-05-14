@@ -41,9 +41,9 @@ function InputDialog(props) {
             shrink: true
           }}
         />
-        {props.errors.map(error => {
+        {props.errors.map((error, index) => {
           return (
-            <Typography variant="caption" color="error">
+            <Typography key={index} variant="caption" color="error">
               {error}
             </Typography>
           );

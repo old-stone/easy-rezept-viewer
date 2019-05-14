@@ -17,9 +17,11 @@ class Results extends Component {
     this.handleClickRecord = this.handleClickRecord.bind(this);
     this.handleClickRezept = this.handleClickRezept.bind(this);
     this.handleOpenClose = this.handleOpenClose.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       selectedIndex: 0,
-      isOpen: []
+      isOpen: [],
+      errors: [[]]
     };
   }
   // レコードを選んだときの処理
@@ -44,8 +46,43 @@ class Results extends Component {
     });
   };
 
-  // レセプト数orレセプト内レコード数が変われば初期化する
+  handleChange = (indexRecord, indexColumn, value, column) => {
+    this.setState(function(prevState, props) {
+      prevState.errors[indexRecord][indexColumn] = deepCheck(value, column);
+      return {
+        errors: prevState.errors
+      };
+    });
+  };
+
   componentWillReceiveProps(nextProps) {
+    // 内容が変わっていれば再チェックする
+    const prevRawData = this.props.rawdata;
+    const nextRawData = nextProps.rawdata;
+    if (prevRawData !== nextRawData) {
+      this.setState({
+        errors: flatSeikyusho(nextProps.seikyusho).map(record => {
+          if (!record) {
+            return [];
+          }
+          const columns = getColumns(nextProps.master, record.array[0]);
+          if (!columns) {
+            return ["不正なレコード識別情報"];
+          }
+          if (record.array.length < columns.length) {
+            return columns.map((column, index) => {
+              return deepCheck(record.array[index], column);
+            });
+          } else {
+            return record.array.map((value, index) => {
+              return deepCheck(value, columns[index]);
+            });
+          }
+        })
+      });
+    }
+
+    // レセプト数orレセプト内レコード数が変われば初期化する
     const prevRezepts = this.props.seikyusho.rezepts;
     const nextRezepts = nextProps.seikyusho.rezepts;
     if (
@@ -76,6 +113,7 @@ class Results extends Component {
               seikyusho={this.props.seikyusho}
               selectedIndex={this.state.selectedIndex}
               isOpen={this.state.isOpen}
+              errors={this.state.errors}
               handleClickRecord={this.handleClickRecord}
               handleClickRezept={this.handleClickRezept}
               handleOpenClose={this.handleOpenClose}
@@ -90,6 +128,8 @@ class Results extends Component {
                   record => record.index === this.state.selectedIndex
                 ).array
               }
+              errors={this.state.errors[this.state.selectedIndex]}
+              handleChange={this.handleChange}
             />
           </Grid>
         </Grid>
@@ -104,5 +144,55 @@ const flatSeikyusho = seikyusho => {
     .concat(seikyusho.rezepts.flat())
     .concat([seikyusho.footer]);
 };
+
+const deepCheck = (value, column) => {
+  if (value === undefined) {
+    return "項目不足";
+  }
+
+  if (!column) {
+    return "項目超過";
+  }
+
+  const error = [];
+  // TODO: 条件もっとある
+  // TODO: 必須項目チェック追加する
+  if (column.type === "数字" && value.match(/[^0-9,.]/)) {
+    error.push("モード誤り");
+  }
+  const byteLen = getByteLen(value);
+  if (byteLen > column.max_bytes) {
+    error.push("バイト数超過");
+  }
+  if (column.is_fixed && byteLen < column.max_bytes) {
+    error.push("バイト数不足");
+  }
+  return error.join(",");
+};
+
+const getByteLen = str => {
+  const len = str.length;
+  let cd,
+    blen = 0;
+
+  for (let i = 0; i < len; i++) {
+    blen += 2;
+    cd = str.charCodeAt(i);
+    if (0x20 <= cd && cd <= 0x7e) {
+      blen--;
+    }
+    if (0xff61 <= cd && cd <= 0xff9f) {
+      blen--;
+    }
+  }
+  return blen;
+};
+
+function getColumns(master, recordShikibetsuInfo) {
+  const def = master.find(
+    def => def.record_shikibetsu_info === recordShikibetsuInfo
+  );
+  return def ? def.columns : null;
+}
 
 export default withStyles(styles)(Results);

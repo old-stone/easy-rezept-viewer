@@ -1,3 +1,4 @@
+import Badge from "@material-ui/core/Badge";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import React from "react";
@@ -7,6 +8,9 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = theme => ({
   nested: {
     paddingLeft: theme.spacing.unit * 4
+  },
+  margin: {
+    margin: theme.spacing.unit * 2
   }
 });
 
@@ -23,14 +27,20 @@ function TreeLabel(props) {
       onClick={e => props.handleClickRecord(e, props.index)}
       className={props.nested ? classes.nested : ""}
     >
-      <ListItemText
-        primary={
-          <Typography color={!recordName ? "error" : "default"}>
-            {props.index + 1}.{" "}
-            {recordName ? recordName : "不正なレコード識別情報"}
-          </Typography>
-        }
-      />
+      <Badge
+        className={classes.badge}
+        badgeContent={countError(props.errors[props.index])}
+        color="secondary"
+      >
+        <ListItemText
+          primary={
+            <Typography color={!recordName ? "error" : "default"}>
+              {props.index + 1 + ". "}
+              {recordName ? recordName : "不正なレコード識別情報"}
+            </Typography>
+          }
+        />
+      </Badge>
     </ListItem>
   );
 }
@@ -41,6 +51,14 @@ function getRecordName(master, recordShikibetsuInfo) {
     def => def.record_shikibetsu_info === recordShikibetsuInfo
   );
   return def ? def.name.replace(/レコード/g, "") : null;
+}
+
+function countError(errors) {
+  if (errors) {
+    return errors.filter(error => error !== "").length;
+  } else {
+    return 0;
+  }
 }
 
 export default withStyles(styles)(TreeLabel);

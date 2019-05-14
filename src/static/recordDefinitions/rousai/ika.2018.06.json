@@ -108,7 +108,7 @@
       {
         "name": "生年月日",
         "type": "数字",
-        "max_bytes": 1,
+        "max_bytes": 7,
         "is_fixed": true
       },
       {

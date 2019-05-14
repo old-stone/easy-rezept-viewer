@@ -61,7 +61,13 @@ function RecordTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          <RecordColumns record={props.record} columns={columns} />
+          <RecordColumns
+            selectedIndex={props.selectedIndex}
+            record={props.record}
+            columns={columns}
+            errors={props.errors}
+            handleChange={props.handleChange}
+          />
           {/* 項目数超過していた場合の処理 */}
           {props.record.length > columns.length &&
             props.record.slice(columns.length).map((value, index) => (
@@ -76,9 +82,10 @@ function RecordTable(props) {
                     margin="dense"
                     className={classes.textField}
                     value={value}
-                    helperText="項目数超過"
+                    helperText={props.errors[columns.length + index]}
                     disabled
                     error
+                    fullWidth
                   />
                 </TableCell>
               </TableRow>
