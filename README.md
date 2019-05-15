@@ -1,6 +1,6 @@
 # Easy Rezept Viewer
 
-![demo](https://raw.github.com/wiki/old-stone/easy-rezept-viewer/images/erv_demo.gif)
+![demo](https://raw.githubusercontent.com/wiki/old-stone/easy-rezept-viewer/images/erv_demo.gif)
 
 ## Overview
 
