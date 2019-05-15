@@ -1,5 +1,7 @@
 # Easy Rezept Viewer
 
+![demo](https://raw.github.com/wiki/old-stone/easy-rezept-viewer/images/erv_demo.gif)
+
 ## Overview
 
 レセ電中の人向け、レセプト（請求書）ビューワー  
