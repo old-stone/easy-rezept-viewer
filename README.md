@@ -8,6 +8,8 @@
 
 ![demo](https://raw.githubusercontent.com/wiki/old-stone/easy-rezept-viewer/images/erv_demo.gif)
 
+お試しはこちら → https://easy-rezept-viewer.netlify.com/
+
 ## Getting Started
 
 ### Prerequisites
