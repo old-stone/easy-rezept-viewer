@@ -43,16 +43,16 @@ function RecordTable(props) {
             <TableCell align="center" style={{ width: "2%" }}>
               No
             </TableCell>
-            <TableCell align="center" style={{ width: "40%" }}>
+            <TableCell align="center" style={{ width: "26%" }}>
               項目名
             </TableCell>
-            <TableCell align="center" style={{ width: "8%" }}>
+            <TableCell align="center" style={{ width: "14%" }}>
               モード
             </TableCell>
-            <TableCell align="center" style={{ width: "10%" }}>
+            <TableCell align="center" style={{ width: "14%" }}>
               最大バイト
             </TableCell>
-            <TableCell align="center" style={{ width: "10%" }}>
+            <TableCell align="center" style={{ width: "14%" }}>
               項目形式
             </TableCell>
             <TableCell align="center" style={{ width: "30%" }}>
