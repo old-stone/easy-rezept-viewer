@@ -9,6 +9,9 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import IconButton from "@material-ui/core/IconButton";
 import Refresh from "@material-ui/icons/Refresh";
 import Tooltip from "@material-ui/core/Tooltip";
+import { bindActionCreators } from "redux";
+import { changeRawdata } from "../../actions/rawdata";
+import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({});
@@ -32,7 +35,7 @@ class RefreshButton extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { rawdata, changeRawdata, classes } = this.props;
 
     // データがないかエラーの場合は何も表示しない
     return (
@@ -44,7 +47,7 @@ class RefreshButton extends Component {
               className={classes.button}
               aria-label="refresh"
               onClick={this.handleClickOpen}
-              disabled={!this.props.rawdata}
+              disabled={!rawdata.text}
             >
               <Refresh />
             </IconButton>
@@ -70,7 +73,7 @@ class RefreshButton extends Component {
             <Button
               onClick={() => {
                 this.handleClose();
-                this.props.handleChange("");
+                changeRawdata("");
               }}
               color="primary"
               autoFocus
@@ -83,5 +86,19 @@ class RefreshButton extends Component {
     );
   }
 }
+function mapStateToProps(state) {
+  return {
+    rawdata: state.rawdata
+  };
+}
 
-export default withStyles(styles)(RefreshButton);
+function mapDispatchToProps(dispatch) {
+  return { changeRawdata: bindActionCreators(changeRawdata, dispatch) };
+}
+
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(RefreshButton)
+);

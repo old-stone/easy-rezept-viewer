@@ -3,6 +3,9 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import React from "react";
 import { Typography } from "@material-ui/core";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { selectRecord } from "../../actions/seikyusho";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
@@ -15,28 +18,27 @@ const styles = theme => ({
 });
 
 function TreeLabel(props) {
-  const { classes } = props;
-
-  const recordName = getRecordName(props.master, props.recordShikibetsuInfo);
+  const { id, name, selectedId, nested, errorCount, classes } = props;
+  const { selectRecord } = props;
 
   return (
     <ListItem
       button
-      key={props.index}
-      selected={props.selectedIndex === props.index}
-      onClick={e => props.handleClickRecord(e, props.index)}
-      className={props.nested ? classes.nested : ""}
+      key={id}
+      selected={id === selectedId}
+      onClick={selectRecord.bind(this, id)}
+      className={nested ? classes.nested : classes.notNested}
     >
       <Badge
         className={classes.badge}
-        badgeContent={countError(props.errors[props.index])}
+        badgeContent={errorCount}
         color="secondary"
       >
         <ListItemText
           primary={
-            <Typography color={!recordName ? "error" : "default"}>
-              {props.index + 1 + ". "}
-              {recordName ? recordName : "不正なレコード識別情報"}
+            <Typography color={name ? "default" : "error"}>
+              {id + 1 + ". "}
+              {name ? name.replace(/レコード/g, "") : "不正なレコード識別情報"}
             </Typography>
           }
         />
@@ -45,20 +47,21 @@ function TreeLabel(props) {
   );
 }
 
-// レコード定義からレコード名称を取得する
-function getRecordName(master, recordShikibetsuInfo) {
-  const def = master.find(
-    def => def.record_shikibetsu_info === recordShikibetsuInfo
-  );
-  return def ? def.name.replace(/レコード/g, "") : null;
+function mapStateToProps(state) {
+  return {
+    seikyusho: state.seikyusho,
+    records: state.records,
+    columns: state.columns
+  };
 }
 
-function countError(errors) {
-  if (errors) {
-    return errors.filter(error => error !== "").length;
-  } else {
-    return 0;
-  }
+function mapDispatchToProps(dispatch) {
+  return { selectRecord: bindActionCreators(selectRecord, dispatch) };
 }
 
-export default withStyles(styles)(TreeLabel);
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(TreeLabel)
+);

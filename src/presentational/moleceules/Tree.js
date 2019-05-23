@@ -1,3 +1,5 @@
+import { selectAllRezept, selectRezept } from "../../actions/rezepts";
+
 import Button from "@material-ui/core/Button";
 import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
@@ -12,7 +14,9 @@ import Person from "@material-ui/icons/Person";
 import React from "react";
 import TreeLabel from "./TreeLabel";
 import Typography from "@material-ui/core/Typography";
+import { bindActionCreators } from "redux";
 import blue from "@material-ui/core/colors/blue";
+import { connect } from "react-redux";
 import red from "@material-ui/core/colors/red";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -32,7 +36,50 @@ const styles = theme => ({
 });
 
 function Tree(props) {
-  const { classes } = props;
+  const { master, seikyusho, rezepts, records, columns, classes } = props;
+  const { selectRezept, selectAllRezept } = props;
+  const { recordDefs } = master;
+  const { headerId, footerId, selectedId } = seikyusho;
+
+  const getRecordDef = recordId =>
+    recordDefs.byId[records.byId[recordId].recordShikibetsuInfo];
+
+  const getRecordName = recordId => {
+    const recordDef = getRecordDef(recordId);
+
+    if (recordDef) {
+      return recordDef.name;
+    }
+  };
+  const getKanjaName = rezeptId => {
+    const id = records.byId[rezepts.byId[rezeptId].records[0]].columns[4];
+    if (id) {
+      return columns.byId[id].value;
+    }
+    return "名称不明";
+  };
+  const getSexColor = rezeptId => {
+    const id = records.byId[rezepts.byId[rezeptId].records[0]].columns[5];
+    if (id) {
+      return columns.byId[id].value === "1"
+        ? blue[400]
+        : columns.byId[id].value === "2"
+        ? red[400]
+        : "";
+    }
+    return "";
+  };
+  const countError = recordId => {
+    const recordColumns = records.byId[recordId].columns;
+    let count = recordColumns.filter(columnId => columns.byId[columnId].error)
+      .length;
+    const recordDef = getRecordDef(recordId);
+    // 項目不足の場合
+    if (recordDef && recordColumns.length < recordDef.columns.length) {
+      count += recordDef.columns.length - recordColumns.length;
+    }
+    return count;
+  };
 
   return (
     <Paper className={classes.root}>
@@ -44,7 +91,7 @@ function Tree(props) {
           <Button
             size="small"
             color="primary"
-            onClick={() => props.handleOpenClose(true)}
+            onClick={selectAllRezept.bind(this, true)}
           >
             全て開く
           </Button>
@@ -52,55 +99,47 @@ function Tree(props) {
           <Button
             size="small"
             color="primary"
-            onClick={() => props.handleOpenClose(false)}
+            onClick={selectAllRezept.bind(this, false)}
           >
             全て閉じる
           </Button>
         </ListItem>
+
         {/* ヘッダ */}
         <TreeLabel
-          index={props.seikyusho.header.index}
-          selectedIndex={props.selectedIndex}
-          recordShikibetsuInfo={props.seikyusho.header.array[0]}
-          master={props.master}
-          nested={false}
-          errors={props.errors}
-          handleClickRecord={props.handleClickRecord}
+          id={headerId}
+          name={getRecordName(headerId)}
+          selectedId={selectedId}
+          errorCount={countError(headerId)}
         />
 
-        {props.seikyusho.rezepts.map((rezept, index) => (
-          <div key={index}>
-            <ListItem button onClick={e => props.handleClickRezept(e, index)}>
+        {rezepts.allIds.map(rezeptId => (
+          <div key={rezeptId}>
+            <ListItem button onClick={selectRezept.bind(this, rezeptId)}>
               <ListItemIcon className={classes.listItemIcon}>
                 <Person
                   className={classes.icon}
-                  nativeColor={
-                    rezept[0].array[5] === "1"
-                      ? blue[400]
-                      : rezept[0].array[5] === "2"
-                      ? red[400]
-                      : ""
-                  }
+                  nativeColor={getSexColor(rezeptId)}
                 />
               </ListItemIcon>
-              <ListItemText
-                primary={rezept[0].array[4] ? rezept[0].array[4] : "名称不明"}
-              />
-              {props.isOpen[index] ? <ExpandLess /> : <ExpandMore />}
+              <ListItemText primary={getKanjaName(rezeptId)} />
+              {rezepts.byId[rezeptId].isOpen ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
-            <Collapse in={props.isOpen[index]} timeout="auto" unmountOnExit>
+            <Collapse
+              in={rezepts.byId[rezeptId].isOpen}
+              timeout="auto"
+              unmountOnExit
+            >
               <List component="div" disablePadding>
-                {rezept.map(record => {
+                {rezepts.byId[rezeptId].records.map(recordId => {
                   return (
                     <TreeLabel
-                      key={record.index}
-                      index={record.index}
-                      selectedIndex={props.selectedIndex}
-                      recordShikibetsuInfo={record.array[0]}
-                      master={props.master}
-                      nested={true}
-                      errors={props.errors}
-                      handleClickRecord={props.handleClickRecord}
+                      key={recordId}
+                      id={recordId}
+                      name={getRecordName(recordId)}
+                      selectedId={selectedId}
+                      errorCount={countError(recordId)}
+                      nested
                     />
                   );
                 })}
@@ -111,16 +150,36 @@ function Tree(props) {
 
         {/* フッタ */}
         <TreeLabel
-          index={props.seikyusho.footer.index}
-          selectedIndex={props.selectedIndex}
-          recordShikibetsuInfo={props.seikyusho.footer.array[0]}
-          master={props.master}
-          errors={props.errors}
-          handleClickRecord={props.handleClickRecord}
+          id={footerId}
+          name={getRecordName(footerId)}
+          selectedId={selectedId}
+          errorCount={countError(footerId)}
         />
       </List>
     </Paper>
   );
 }
 
-export default withStyles(styles)(Tree);
+function mapStateToProps(state) {
+  return {
+    master: state.master,
+    seikyusho: state.seikyusho,
+    rezepts: state.rezepts,
+    records: state.records,
+    columns: state.columns
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    selectRezept: bindActionCreators(selectRezept, dispatch),
+    selectAllRezept: bindActionCreators(selectAllRezept, dispatch)
+  };
+}
+
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Tree)
+);

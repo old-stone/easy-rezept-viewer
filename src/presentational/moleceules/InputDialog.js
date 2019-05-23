@@ -6,27 +6,32 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
+import { bindActionCreators } from "redux";
+import { changeRawdata } from "../../actions/rawdata";
+import { closeForm } from "../../actions/form";
+import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
-
 const styles = theme => ({});
+
 function InputDialog(props) {
-  const { classes } = props;
+  const { rawdata, form, classes } = props;
+  const { closeForm, changeRawdata } = props;
 
   return (
     <Dialog
-      open={props.open}
-      onClose={props.handleClose}
+      open={form.isOpen}
+      onClose={closeForm}
       maxWidth="xl"
       fullWidth
       aria-labelledby="form-dialog-title"
     >
       <DialogTitle id="form-dialog-title">
-        {"レセプトを" + (props.rawdata ? "編集" : "入力") + "する"}
+        {"レセプトを" + (rawdata ? "編集" : "入力") + "する"}
       </DialogTitle>
       <DialogContent>
         <TextField
           id="standard-multiline-static"
-          label={(props.rawdata ? "編集" : "入力") + "欄"}
+          label={(rawdata ? "編集" : "入力") + "欄"}
           placeholder="請求ファイル内のテキストを貼り付けてください。"
           multiline
           fullWidth
@@ -34,14 +39,14 @@ function InputDialog(props) {
           rowsMax="20"
           className={classes.textField}
           margin="normal"
-          error={Boolean(props.errors.length)}
-          value={props.rawdata}
-          onChange={e => props.handleChange(e.target.value)}
+          error={Boolean(rawdata.errors.length)}
+          value={rawdata.text}
+          onChange={e => changeRawdata(e.target.value)}
           InputLabelProps={{
             shrink: true
           }}
         />
-        {props.errors.map((error, index) => {
+        {rawdata.errors.map((error, index) => {
           return (
             <Typography key={index} variant="caption" color="error">
               {error}
@@ -50,7 +55,7 @@ function InputDialog(props) {
         })}
       </DialogContent>
       <DialogActions>
-        <Button onClick={props.handleClose} color="primary">
+        <Button onClick={closeForm} color="primary">
           閉じる
         </Button>
       </DialogActions>
@@ -58,4 +63,23 @@ function InputDialog(props) {
   );
 }
 
-export default withStyles(styles)(InputDialog);
+function mapStateToProps(state) {
+  return {
+    rawdata: state.rawdata,
+    form: state.form
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    closeForm: bindActionCreators(closeForm, dispatch),
+    changeRawdata: bindActionCreators(changeRawdata, dispatch)
+  };
+}
+
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(InputDialog)
+);

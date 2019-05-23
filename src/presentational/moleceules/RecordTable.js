@@ -1,19 +1,26 @@
 import React from "react";
-import RecordColumns from "./RecordColumns";
+import RecordColumn from "./RecordColumn";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   root: {
     display: "flex",
-    // width: "100%",
-    // marginTop: theme.spacing.unit * 3,
     overflowX: "auto"
+  },
+  error: {
+    margin: "5vh",
+    padding: "5vh",
+    minHeight: "70vh",
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center"
   },
   table: {
     minWidth: 700,
@@ -26,14 +33,27 @@ const styles = theme => ({
 });
 
 function RecordTable(props) {
-  const { classes } = props;
+  const { master, seikyusho, records, columns, classes } = props;
+  const { selectedId } = seikyusho;
+  const { recordDefs } = master;
 
-  // 表示するカラム定義を用意する
-  const columns = getColumns(props.master, props.record[0]);
+  const recordShikibetsuInfo = records.byId[selectedId].recordShikibetsuInfo;
   // レコードが空であれば何も表示しない
-  if (!columns) {
-    return null;
+  if (!recordDefs.byId[recordShikibetsuInfo]) {
+    return (
+      <div className={classes.error}>
+        <Typography variant="h6" color="error" gutterBottom>
+          レコード識別情報
+          {recordShikibetsuInfo && " [" + recordShikibetsuInfo + "] "}
+          が不正です。
+        </Typography>
+      </div>
+    );
   }
+
+  const selectedRecord = records.byId[selectedId];
+  const columnDef =
+    recordDefs.byId[selectedRecord.recordShikibetsuInfo].columns;
 
   return (
     <div className={classes.root}>
@@ -61,47 +81,49 @@ function RecordTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          <RecordColumns
-            selectedIndex={props.selectedIndex}
-            record={props.record}
-            columns={columns}
-            errors={props.errors}
-            handleChange={props.handleChange}
-          />
-          {/* 項目数超過していた場合の処理 */}
-          {props.record.length > columns.length &&
-            props.record.slice(columns.length).map((value, index) => (
-              <TableRow hover key={columns.length + index}>
-                <TableCell align="right">
-                  {columns.length + index + 1}
-                </TableCell>
-                <TableCell colSpan={4} />
-                <TableCell align="left">
-                  <TextField
-                    id="standard-error"
-                    margin="dense"
-                    className={classes.textField}
-                    value={value}
-                    helperText={props.errors[columns.length + index]}
-                    disabled
-                    error
-                    fullWidth
-                  />
-                </TableCell>
-              </TableRow>
-            ))}
+          {selectedRecord.columns.map((columnId, index) => (
+            <RecordColumn
+              key={columnId}
+              id={columnId}
+              index={index}
+              recordShikibetsuInfo={selectedRecord.recordShikibetsuInfo}
+              value={columns.byId[columnId].value}
+              error={columns.byId[columnId].error}
+            />
+          ))}
+          {/* カラム数が少ない場合の処理 */}
+          {selectedRecord.columns.length < columnDef.length &&
+            columnDef
+              .slice(selectedRecord.columns.length)
+              .map((column, index) => (
+                <RecordColumn
+                  key={index}
+                  index={index + selectedRecord.columns.length}
+                  recordShikibetsuInfo={selectedRecord.recordShikibetsuInfo}
+                />
+              ))}
         </TableBody>
       </Table>
     </div>
   );
 }
 
-// レコード定義からレコード名称を取得する
-function getColumns(master, recordShikibetsuInfo) {
-  const def = master.find(
-    def => def.record_shikibetsu_info === recordShikibetsuInfo
-  );
-  return def ? def.columns : null;
+function mapStateToProps(state) {
+  return {
+    master: state.master,
+    seikyusho: state.seikyusho,
+    records: state.records,
+    columns: state.columns
+  };
 }
 
-export default withStyles(styles)(RecordTable);
+function mapDispatchToProps(dispatch) {
+  return {};
+}
+
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(RecordTable)
+);

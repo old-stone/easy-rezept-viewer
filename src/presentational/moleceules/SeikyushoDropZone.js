@@ -1,8 +1,13 @@
 import Button from "@material-ui/core/Button";
 import React from "react";
 import Typography from "@material-ui/core/Typography";
+import { bindActionCreators } from "redux";
+import { changeFileName } from "../../actions/file";
+import { changeRawdata } from "../../actions/rawdata";
+import { connect } from "react-redux";
 import encoding from "encoding-japanese";
 import lightGreen from "@material-ui/core/colors/lightGreen";
+import { openForm } from "../../actions/form";
 import { useDropzone } from "react-dropzone";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -25,27 +30,27 @@ const styles = theme => ({
 
 function SeikyushoDropZone(props) {
   const { classes } = props;
-
-  const onDrop = acceptedFiles => {
-    const reader = new FileReader();
-    reader.readAsBinaryString(acceptedFiles[0]);
-    reader.onload = () => {
-      const shiftJisCodeList = encoding.convert(
-        reader.result
-          .split("")
-          .map((c, index) => reader.result.codePointAt(index)),
-        "unicode",
-        "sjis"
-      );
-      props.handleChange(encoding.codeToString(shiftJisCodeList));
-    };
-  };
+  const { openForm, changeRawdata, changeFileName } = props;
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: ".uke,.uks,.cyo,.cys",
     noKeyboard: true,
     noClick: true,
-    onDrop
+    onDrop: acceptedFiles => {
+      const reader = new FileReader();
+      reader.readAsBinaryString(acceptedFiles[0]);
+      reader.onload = () => {
+        const shiftJisCodeList = encoding.convert(
+          reader.result
+            .split("")
+            .map((c, index) => reader.result.codePointAt(index)),
+          "unicode",
+          "sjis"
+        );
+        changeFileName(acceptedFiles[0].name.split(/\.(?=[^.]+$)/)[0]);
+        changeRawdata(encoding.codeToString(shiftJisCodeList));
+      };
+    }
   });
 
   return (
@@ -65,7 +70,7 @@ function SeikyushoDropZone(props) {
         className={classes.button}
         variant="outlined"
         color="primary"
-        onClick={props.handleClickOpen}
+        onClick={openForm}
       >
         レセプトを入力する
       </Button>
@@ -73,4 +78,21 @@ function SeikyushoDropZone(props) {
   );
 }
 
-export default withStyles(styles)(SeikyushoDropZone);
+function mapStateToProps(state) {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    openForm: bindActionCreators(openForm, dispatch),
+    changeFileName: bindActionCreators(changeFileName, dispatch),
+    changeRawdata: bindActionCreators(changeRawdata, dispatch)
+  };
+}
+
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SeikyushoDropZone)
+);

@@ -1,18 +1,17 @@
-import About from "../../presentational/moleceules/About";
+import About from "../presentational/moleceules/About";
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import GitHub from "../../presentational/atoms/GitHub";
+import GitHub from "../presentational/atoms/GitHub";
 import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 import Link from "@material-ui/core/Link";
 import React from "react";
 import Receipt from "@material-ui/icons/Receipt";
-import RefreshButton from "../../presentational/moleceules/RefreshButton";
-import SaveDialog from "../../presentational/moleceules/SaveDialog";
+import RefreshButton from "../presentational/moleceules/RefreshButton";
+import SaveDialog from "../presentational/moleceules/SaveDialog";
 import Toolbar from "@material-ui/core/Toolbar";
 import Tooltip from "@material-ui/core/Tooltip";
+import TryButton from "../presentational/moleceules/TryButton";
 import Typography from "@material-ui/core/Typography";
-import sample from "../../static/recordDefinitions/rousai/sample.csv";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
@@ -24,7 +23,6 @@ const styles = theme => ({
   },
   icon: {
     transform: "scale(1.7)",
-    // marginLeft: -5,
     marginRight: 20
   },
   fab: {
@@ -60,25 +58,11 @@ function Header(props) {
             </Typography>
           </div>
 
-          <Button
-            color="inherit"
-            onClick={() =>
-              fetch(sample)
-                .then(r => r.text())
-                .then(text => {
-                  props.handleChange(text);
-                })
-            }
-          >
-            サンプルデータ投入
-          </Button>
+          {process.env.REACT_APP_IS_TRY_MODE === "true" && <TryButton />}
 
-          <SaveDialog rawdata={props.rawdata} seikyusho={props.seikyusho} />
+          <SaveDialog />
 
-          <RefreshButton
-            handleChange={props.handleChange}
-            rawdata={props.rawdata}
-          />
+          <RefreshButton />
 
           <About />
 

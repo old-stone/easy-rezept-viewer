@@ -14,6 +14,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import Person from "@material-ui/icons/Person";
 import Tooltip from "@material-ui/core/Tooltip";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -63,31 +64,33 @@ class About extends Component {
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              レセ電中の人向けのレセプトビューワです。
-              実運用する場合はオンプレミスでお願いします。
-              何かあればGitHubにIssueあげるかメールください。
+              {process.env.REACT_APP_DESCRIPTION}
             </DialogContentText>
             <List>
-              <ListItem>
-                <ListItemIcon>
-                  <Avatar>
-                    <Email />
-                  </Avatar>
-                </ListItemIcon>
-                <ListItemText primary="old.stone.p(at)gmail.com" />
-              </ListItem>
-
-              <ListItem>
-                <ListItemIcon>
-                  <Avatar>Q</Avatar>
-                </ListItemIcon>
-                <ListItemText>
-                  <Link href="https://qiita.com/old-stone">
-                    https://qiita.com/old-stone
-                  </Link>
-                </ListItemText>
-              </ListItem>
-
+              {process.env.REACT_APP_EMAIL && (
+                <ListItem>
+                  <ListItemIcon>
+                    <Avatar>
+                      <Email />
+                    </Avatar>
+                  </ListItemIcon>
+                  <ListItemText primary={process.env.REACT_APP_EMAIL} />
+                </ListItem>
+              )}
+              {process.env.REACT_APP_BLOG && (
+                <ListItem>
+                  <ListItemIcon>
+                    <Avatar>
+                      <Person />
+                    </Avatar>
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Link href={process.env.REACT_APP_BLOG}>
+                      {process.env.REACT_APP_BLOG}
+                    </Link>
+                  </ListItemText>
+                </ListItem>
+              )}
               <ListItem>
                 <ListItemIcon>
                   <Avatar>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { changeFileName, saveFile } from "../../actions/file";
 
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -12,7 +13,8 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import InputLabel from "@material-ui/core/InputLabel";
 import Save from "@material-ui/icons/Save";
 import Tooltip from "@material-ui/core/Tooltip";
-import encoding from "encoding-japanese";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({});
@@ -22,9 +24,7 @@ class SaveDialog extends Component {
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.state = {
-      isOpen: false,
-      fileName: ""
-      // TODO: extensionのstate化
+      isOpen: false
     };
   }
 
@@ -36,36 +36,10 @@ class SaveDialog extends Component {
     this.setState({ isOpen: false });
   };
 
-  handleChange = e => {
-    this.setState({ fileName: e.target.value });
-  };
-
-  handleDownload = () => {
-    const element = document.createElement("a");
-    const shiftJisCodeList = encoding.convert(
-      this.props.rawdata
-        .split("")
-        .map((c, index) => this.props.rawdata.codePointAt(index)),
-      "sjis",
-      "unicode"
-    );
-    const uInt8List = new Uint8Array(shiftJisCodeList);
-    const file = new Blob([uInt8List], {
-      type: "text/plain"
-    });
-    element.href = URL.createObjectURL(file);
-    element.download =
-      this.state.fileName +
-      getExtension(
-        this.props.seikyusho.tensuHyouCode,
-        this.props.seikyusho.isHenrei
-      );
-    document.body.appendChild(element); // Required for this to work in FireFox
-    element.click();
-  };
-
   render() {
-    const { classes } = this.props;
+    const { rawdata, seikyusho, file, classes } = this.props;
+    const { changeFileName, saveFile } = this.props;
+
     return (
       <div>
         <Tooltip title="請求ファイルダウンロード">
@@ -74,7 +48,7 @@ class SaveDialog extends Component {
               color="inherit"
               className={classes.button}
               aria-label="save"
-              disabled={!this.props.rawdata}
+              disabled={!seikyusho.isActive}
               onClick={this.handleOpen}
             >
               <Save />
@@ -96,17 +70,15 @@ class SaveDialog extends Component {
                 fullWidth
                 endAdornment={
                   <InputAdornment position="end">
-                    {getExtension(
-                      this.props.seikyusho.tensuHyouCode,
-                      this.props.seikyusho.isHenrei
-                    )}
+                    {seikyusho.extention}
                   </InputAdornment>
                 }
+                value={file.fileName}
                 inputProps={{
                   "aria-label": "file-name",
                   label: "ファイル名"
                 }}
-                onChange={this.handleChange}
+                onChange={e => changeFileName(e.target.value)}
               />
             </FormControl>
           </DialogContent>
@@ -117,10 +89,10 @@ class SaveDialog extends Component {
             <Button
               onClick={() => {
                 this.handleClose();
-                this.handleDownload();
+                saveFile(rawdata.text, file.fileName, seikyusho.extention);
               }}
               color="primary"
-              disabled={!this.state.fileName}
+              disabled={!file.fileName}
             >
               保存
             </Button>
@@ -131,20 +103,24 @@ class SaveDialog extends Component {
   }
 }
 
-const getExtension = (tensuHyouCode, isHenrei) => {
-  if (tensuHyouCode === 1 || tensuHyouCode === 3) {
-    if (isHenrei) {
-      return ".UKS";
-    } else {
-      return ".UKE";
-    }
-  } else if (tensuHyouCode === 3) {
-    if (isHenrei) {
-      return ".CYS";
-    } else {
-      return "CYO";
-    }
-  }
-};
+function mapStateToProps(state) {
+  return {
+    rawdata: state.rawdata,
+    seikyusho: state.seikyusho,
+    file: state.file
+  };
+}
 
-export default withStyles(styles)(SaveDialog);
+function mapDispatchToProps(dispatch) {
+  return {
+    saveFile: bindActionCreators(saveFile, dispatch),
+    changeFileName: bindActionCreators(changeFileName, dispatch)
+  };
+}
+
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SaveDialog)
+);
